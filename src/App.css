@@ -10,7 +10,7 @@
 }
 
 .tweets {
-  width: 40%;
+  max-width: 550px;
   border: 1px solid rgba(161, 171, 179, 0.493);
 
 }

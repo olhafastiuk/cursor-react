@@ -1,89 +1,125 @@
 .line {
-    display: flex;
+  display: flex;
 }
 .column {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .tweet {
-    padding: 16px;
-    border-top: 1px solid rgba(161, 171, 179, 0.493);
-    border-bottom: 1px solid rgba(161, 171, 179, 0.493);
-
+  padding: 16px;
+  border-top: 1px solid rgba(161, 171, 179, 0.493);
+  border-bottom: 1px solid rgba(161, 171, 179, 0.493);
 }
 
 .profile-photo-box {
-    display: flex;
-    justify-content: center;
-    align-items: start;
-    margin-right: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  margin-right: 12px;
 }
 
-.profile-photo { 
-    border-radius: 100%;
-    width: 48px;
-    height: 48px;
-    
+.profile-photo {
+  border-radius: 100%;
+  width: 48px;
+  height: 48px;
 }
 
 .top {
-    justify-content: space-between;
-    width: auto;
+  justify-content: space-between;
+  width: auto;
 }
 
 .name {
-    font-size: 15px;
-    color: black;
-    padding-right: 4px;
+  font-size: 15px;
+  color: black;
+  padding-right: 4px;
 }
 
-.nickname, .date {
-    font-size: 15px;
-    color: #536471;
+.nickname,
+.date {
+  font-size: 15px;
+  color: #536471;
 }
 .nickname {
-    overflow-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .dot {
-    margin: 0 2px;
+  margin: 0 2px;
 }
 
 .dropdown {
-    width: 1.25em;
-    cursor: pointer;
+  width: 1.25em;
+  cursor: pointer;
 }
 
 .post {
-    width: 100%;
-    height: max-content;
-    display: flex;
-    flex-direction: column;
+  width: 100%;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
 }
 
 .post img {
-    width: 100%;
-    max-height: 280px;
-    object-fit:cover;
-    object-position: bottom;
-    border-radius: 20px;
-    margin-top: 5px;
+  width: 100%;
+  max-height: 280px;
+  object-fit: cover;
+  object-position: bottom;
+  border-radius: 20px;
+  margin-top: 5px;
 }
 
 .bottom {
-    justify-content: space-between;
-    margin-top: 12px;
-    margin-right: 60px;
-    font-size: 13px;
-    color: #536471;
-
+  justify-content: space-between;
+  margin-top: 12px;
+  margin-right: 60px;
+  font-size: 13px;
+  color: #536471;
 }
 
 .ico {
-    width: 1.25em;
-    cursor: pointer;
-    margin-right: 2px;
+  width: 2.5em;
+  cursor: pointer;
+  margin-right: 2px;
+  border-radius: 35%;
+  padding: 0.5em;
 }
 
+.comment,
+.like,
+.repost,
+.share {
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.comment:hover .ico {
+  background: rgba(29, 161, 242, 0.2);
+  fill: rgb(29, 161, 242);
+}
+.comment:hover {
+  color: rgb(29, 161, 242);
+}
+
+.repost:hover .ico {
+  background: rgba(23, 191, 99, 0.2);
+  fill: rgb(23, 191, 99);
+}
+.repost:hover {
+  color: rgb(23, 191, 99);
+}
+
+.like:hover .ico {
+  background: rgba(224, 36, 94, 0.2);
+  fill: rgb(224, 36, 94);
+}
+.like:hover {
+  color: rgb(224, 36, 94);
+}
+
+.share:hover .ico {
+  background: rgba(29, 161, 242, 0.2);
+  fill: rgb(29, 161, 242);
+}
