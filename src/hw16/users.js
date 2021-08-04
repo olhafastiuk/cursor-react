@@ -1,4 +1,4 @@
-const Users = [
+const users = [
   {
     img: "https://pbs.twimg.com/profile_images/1321163587679784960/0ZxKlEKB_400x400.jpg",
     name: "NASA",
@@ -41,4 +41,4 @@ const Users = [
   },
 ];
 
-export default Users;
+export default users;
