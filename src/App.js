@@ -9,16 +9,18 @@ function App() {
   return (
     <>
       <nav>
-        <a href="/">Home</a>
-        <a href="/hw16">Intro to React</a>
-        <a href="/hw17">React Hooks</a>
+      <Link to="/">Home</Link>
+      <Link to="/hw16">Intro to React</Link>
+      <Link to="/hw17">React Hooks</Link>
       </nav>
-      <Router>
-        <Switch>
-          <Route exact path="/hw16" component={Hw16} />
-          <Route exact path="/hw17" component={Hw17} />
-        </Switch>
-      </Router>
+      <Switch>
+        <Route exact path="/hw16">
+          <Hw16 />
+        </Route>
+        <Route path="/hw17">
+          <Hw17 />
+        </Route>
+      </Switch>
     </>
   );
 }
