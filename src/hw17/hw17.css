@@ -1,5 +1,110 @@
 .phone {
-  /* background-image: url(https://i.pinimg.com/564x/5f/57/31/5f573105b914a7bf0ee6dbc2a8a8850f.jpg); */
+  background-color: rgb(66, 97, 155);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50vw;
+  max-width: 500px;
+  margin-left: -50px;
+  margin-top: 50px;
   background-repeat: no-repeat;
   background-size: contain;
+  border-radius: 20px;
+}
+#search {
+  margin-top: 20px;
+  padding: 5px 10px;
+  background: transparent;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  width: 80%;
+  color: white;
+  font-size: larger;
+}
+
+#search::placeholder {
+  color: white;
+  font-size: 14px;
+}
+
+#search:focus {
+  background: white;
+  color: rgb(69, 98, 151);
+  font-size: larger;
+}
+
+.filter {
+  display: flex;
+  width: 50%;
+  min-width: 50px;
+  justify-content: space-between;
+  margin: 10px 0;
+  font-size: 1.4em;
+}
+
+.filter input {
+  width: 25px;
+  cursor: pointer;
+}
+
+.check {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact {
+  background: aliceblue;
+  width: 40vw;
+  max-width: 450px;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  margin: 0.5px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.contacts-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+  max-width: 450px;
+}
+
+.avatar {
+  border-radius: 50%;
+  width: 5vw;
+  height: 5vw;
+}
+
+.fullname {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.fullname p {
+  margin-right: 5px;
+}
+
+.number {
+  font-size: 0.85em;
+  text-decoration: none;
+  color: black;
+}
+
+.contact:hover .number{
+    color:  #4dafb8;
+    font-size: larger;
+}
+.contact:hover{
+    
+    cursor: pointer;
 }

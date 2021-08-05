@@ -1,26 +1,46 @@
 import React from "react";
 
 export default function Contact(props) {
-  function getGender() {
+  function getImg() {
     if (props.gender === "female") {
-      return <img src="" alt="female" />;
+      return (
+        <img
+          className="avatar"
+          src="https://image.flaticon.com/icons/png/512/2922/2922554.png"
+          alt="female"
+        />
+      );
     } else if (props.gender === "male") {
-      return <img src="" alt="male" />;
+      return (
+        <img
+          className="avatar"
+          src="https://image.flaticon.com/icons/png/512/265/265674.png"
+          alt="male"
+        />
+      );
     } else {
-      return <img src="" alt="?" />;
+      return (
+        <img
+          className="avatar"
+          src="https://image.flaticon.com/icons/png/512/1077/1077012.png"
+          alt="?"
+        />
+      );
     }
   }
 
   return (
-    <div>
-      <img src="" alt="" />
+    <div className="contact">
+      {getImg()}
       <div>
         <div className="fullname">
           <p>{props.firstName}</p>
           <p>{props.lastName}</p>
         </div>
-        <p className="number">{props.phone}</p>
-        <getGender />
+        <a className="number" href="tel:{props.phone}">
+          {props.phone}
+        </a>
+        {/* <getGender /> */}
       </div>
     </div>
   );

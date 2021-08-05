@@ -5,8 +5,16 @@
 }
 
 body {
-  background: linear-gradient(180deg, #7BC4CA 0%, #A5CBCE 21.7%, #C6CBD1 38.39%, #DCCBD3 56.24%, #F4BFC9 81.49%, #FAB8C2 100%);
-  height:max-content;
+  background: linear-gradient(
+    180deg,
+    #7bc4ca 0%,
+    #a5cbce 21.7%,
+    #c6cbd1 38.39%,
+    #dccbd3 56.24%,
+    #f4bfc9 81.49%,
+    #fab8c2 100%
+  );
+  height: max-content;
   min-height: 100vh;
   background-repeat: no-repeat;
 }
@@ -21,21 +29,26 @@ nav {
   margin: 50px;
 }
 
-a {
+.mainLink {
   display: flex;
   padding: 10px 15px;
   text-decoration: none;
-  background: linear-gradient(90deg, #EF96C5 0%, rgba(239, 150, 197, 0.35) 54.17%, rgba(239, 150, 197, 0) 100%);
+  background: linear-gradient(
+    90deg,
+    #ef96c5 0%,
+    rgba(239, 150, 197, 0.35) 54.17%,
+    rgba(239, 150, 197, 0) 100%
+  );
   color: #ccfbff;
   font-weight: bold;
   font-size: x-large;
   margin: 12px;
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
   width: 30vw;
-  transition: all .3s;
+  transition: all 0.3s;
 }
 
-a:hover {
-  background: #EF96C5;
+.mainLink:hover {
+  background: #ef96c5;
   margin-left: 20px;
 }

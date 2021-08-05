@@ -9,9 +9,15 @@ function App() {
   return (
     <>
       <nav>
-      <Link to="/">Home</Link>
-      <Link to="/hw16">Intro to React</Link>
-      <Link to="/hw17">React Hooks</Link>
+        <Link className="mainLink" to="/">
+          Home
+        </Link>
+        <Link className="mainLink" to="/hw16">
+          Intro to React
+        </Link>
+        <Link className="mainLink" to="/hw17">
+          React Hooks
+        </Link>
       </nav>
       <Switch>
         <Route exact path="/hw16">

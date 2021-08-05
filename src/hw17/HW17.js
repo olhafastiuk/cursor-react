@@ -44,10 +44,8 @@ export default function Hw17() {
   const [users, setUsers] = useState(contacts);
   const [searchTerm, setSearchTerm] = useState(contacts);
 
-  useEffect(() => {
-    getFiltered();
-    getGender();
-  }, [searchTerm]);
+  useEffect(getFiltered, []);
+  useEffect(getGender, [searchTerm]);
 
   function getGender() {
     let filteredFemale = [];
@@ -95,16 +93,14 @@ export default function Hw17() {
 
   return (
     <div className="phone">
+      <input
+        type="text"
+        placeholder="🔍 Пошук..."
+        id="search"
+        onChange={getFiltered}
+      />
       <div className="filter">
-        <input
-          type="text"
-          placeholder="Пошук"
-          id="search"
-          onChange={getFiltered}
-        />
-      </div>
-      <div>
-        <div>
+        <div className="check">
           <input
             type="checkbox"
             name=""
@@ -112,9 +108,9 @@ export default function Hw17() {
             defaultChecked={true}
             onChange={getGender}
           />
-          <p>Ж</p>
+          <p>👩</p>
         </div>
-        <div>
+        <div className="check">
           <input
             type="checkbox"
             name=""
@@ -122,9 +118,9 @@ export default function Hw17() {
             defaultChecked={true}
             onChange={getGender}
           />
-          <p>Ч</p>
+          <p>👨</p>
         </div>
-        <div>
+        <div className="check">
           <input
             type="checkbox"
             name=""
