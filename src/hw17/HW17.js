@@ -42,6 +42,37 @@ export default function Hw17() {
   ];
 
   const [users, setUsers] = useState(contacts);
+  const [searchTerm, setSearchTerm] = useState(contacts);
+
+  useEffect(() => {
+    getFiltered();
+    getGender();
+  }, [searchTerm]);
+
+  function getGender() {
+    let filteredFemale = [];
+    let filteredMale = [];
+    let filteredOther = [];
+    if (document.getElementById("female").checked) {
+      filteredFemale = filteredFemale.concat(
+        searchTerm.filter((el) => el.gender === "female")
+      );
+    }
+    if (document.getElementById("male").checked) {
+      filteredMale = filteredMale.concat(
+        searchTerm.filter((el) => el.gender === "male")
+      );
+    }
+    if (document.getElementById("other").checked) {
+      filteredOther = filteredOther.concat(
+        searchTerm.filter((el) => el.gender != "male" && el.gender != "female")
+      );
+    }
+    setUsers([
+      ...new Set(filteredFemale.concat(filteredMale).concat(filteredOther)),
+    ]);
+  }
+
   function getFiltered() {
     let input = document.getElementById("search").value;
     const filteredLastName = contacts.filter(
@@ -53,24 +84,57 @@ export default function Hw17() {
     const filteredPhone = contacts.filter(
       (el) => el.phone.toLowerCase().indexOf(input.toLowerCase()) !== -1
     );
-    const filtered = [
+    let filtered = [
       ...new Set(
         filteredLastName.concat(filteredFistName).concat(filteredPhone)
       ),
     ];
 
-    setUsers(filtered);
+    setSearchTerm(filtered);
   }
 
   return (
     <div className="phone">
-      <input
-        type="text"
-        placeholder="Пошук"
-        id="search"
-        onChange={getFiltered}
-      />
-      <div className="filter"></div>
+      <div className="filter">
+        <input
+          type="text"
+          placeholder="Пошук"
+          id="search"
+          onChange={getFiltered}
+        />
+      </div>
+      <div>
+        <div>
+          <input
+            type="checkbox"
+            name=""
+            id="female"
+            defaultChecked={true}
+            onChange={getGender}
+          />
+          <p>Ж</p>
+        </div>
+        <div>
+          <input
+            type="checkbox"
+            name=""
+            id="male"
+            defaultChecked={true}
+            onChange={getGender}
+          />
+          <p>Ч</p>
+        </div>
+        <div>
+          <input
+            type="checkbox"
+            name=""
+            id="other"
+            defaultChecked={true}
+            onChange={getGender}
+          />
+          <p>?</p>
+        </div>
+      </div>
       <div className="contacts-list">
         {users.map((user) => (
           <Contact
