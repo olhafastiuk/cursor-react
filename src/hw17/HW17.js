@@ -41,6 +41,21 @@ export default function Hw17() {
     },
   ];
 
+  const inputItems = [
+    {
+      id: "female",
+      label: "👩",
+    },
+    {
+      id: "male",
+      label: "👨",
+    },
+    {
+      id: "other",
+      label: "?",
+    },
+  ];
+
   const [users, setUsers] = useState(contacts);
   const [searchTerm, setSearchTerm] = useState(contacts);
 
@@ -100,45 +115,23 @@ export default function Hw17() {
         onChange={getFiltered}
       />
       <div className="filter">
-        <div className="check">
-          <input
-            type="checkbox"
-            name=""
-            id="female"
-            defaultChecked={true}
-            onChange={getGender}
-          />
-          <p>👩</p>
-        </div>
-        <div className="check">
-          <input
-            type="checkbox"
-            name=""
-            id="male"
-            defaultChecked={true}
-            onChange={getGender}
-          />
-          <p>👨</p>
-        </div>
-        <div className="check">
-          <input
-            type="checkbox"
-            name=""
-            id="other"
-            defaultChecked={true}
-            onChange={getGender}
-          />
-          <p>?</p>
-        </div>
+        {inputItems.map((item) => (
+          <div className="check">
+            <input
+              type="checkbox"
+              id={item.id}
+              key = {item.id}
+              defaultChecked={true}
+              onChange={getGender}
+            />
+            <p>{item.label}</p>
+          </div>
+        ))}
       </div>
       <div className="contacts-list">
         {users.map((user) => (
-          <Contact
-            firstName={user.firstName}
-            lastName={user.lastName}
-            phone={user.phone}
-            gender={user.gender}
-          />
+          <Contact {...user} key={user.id} />
+            
         ))}
       </div>
     </div>

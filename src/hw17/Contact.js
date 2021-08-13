@@ -1,8 +1,8 @@
 import React from "react";
 
-export default function Contact(props) {
+export default function Contact(user) {
   function getImg() {
-    if (props.gender === "female") {
+    if (user.gender === "female") {
       return (
         <img
           className="avatar"
@@ -10,7 +10,7 @@ export default function Contact(props) {
           alt="female"
         />
       );
-    } else if (props.gender === "male") {
+    } else if (user.gender === "male") {
       return (
         <img
           className="avatar"
@@ -34,13 +34,12 @@ export default function Contact(props) {
       {getImg()}
       <div>
         <div className="fullname">
-          <p>{props.firstName}</p>
-          <p>{props.lastName}</p>
+          <p>{user.firstName}</p>
+          <p>{user.lastName}</p>
         </div>
-        <a className="number" href="tel:{props.phone}">
-          {props.phone}
+        <a className="number" href="tel:{user.phone}">
+          {user.phone}
         </a>
-        {/* <getGender /> */}
       </div>
     </div>
   );
