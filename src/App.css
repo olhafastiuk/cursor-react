@@ -15,8 +15,8 @@ body {
     #fab8c2 100%
   );
   height: max-content;
-  min-height: 100vh;
-  background-repeat: no-repeat;
+  min-height: 150vh;
+  background-repeat: repeat-x;
 }
 
 #root {
