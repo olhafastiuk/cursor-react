@@ -8,7 +8,7 @@
 .hw20-main > .nav-menu > a {
   justify-content: start;
   box-shadow: none;
-  background-color:  transparent;
+  background-color: transparent;
   margin: 30px 0 0;
   padding: 0;
   color: rgb(153, 39, 117);
@@ -17,12 +17,12 @@
 }
 
 .hw20-main > .nav-menu > a:hover {
-  background-color:  transparent;
+  background-color: transparent;
   color: rgb(42, 108, 206);
 }
 
 .hw20-main > .nav-menu > a::before {
-  content: '➤';
+  content: "➤";
 }
 
 .hw20 {
@@ -51,18 +51,19 @@
   text-decoration: none;
   border-radius: 6px;
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-  background-color:  #ffffff21;
-  color: rgb(153, 39, 117) ;
+  background-color: #ffffff21;
+  color: rgb(153, 39, 117);
   transition: 0.5s;
 }
 
-.nav-menu > a:hover, .nav-menu > a.active{
+.nav-menu > a:hover,
+.nav-menu > a.active {
   color: #ccfbff;
-  background: #8f1f5a  ;
+  background: #8f1f5a;
 }
 
 .hw20 > .phone {
-  background: #8f1f5a ;
+  background: #8f1f5a;
   margin-left: 50px;
   margin-top: 10px;
 }
@@ -86,9 +87,9 @@
 }
 
 .gallery > a > img {
-width: 100%;
-height: 100%;
-object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .gallery > a > img:hover {
   border: #8f1f5a solid 3px;

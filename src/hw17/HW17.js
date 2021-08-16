@@ -1,6 +1,13 @@
 import "./hw17.css";
 import React, { useState, useEffect } from "react";
 import Contact from "./Contact";
+import {
+  Switch,
+  Route,
+  Link,
+  useRouteMatch,
+  useParams,
+} from "react-router-dom";
 
 export default function Hw17() {
   const contacts = [
@@ -9,35 +16,41 @@ export default function Hw17() {
       lastName: "Стинсовський",
       phone: "+380956319521",
       gender: "male",
+      mail: "I am usually the one to help them fix things",
     },
     {
       firstName: "Робін",
       lastName: "Щербатська",
       phone: "+380931460123",
       gender: "female",
+      mail: "They always come to me for advice",
     },
     {
       firstName: "Анонімний",
       lastName: "Анонімус",
       phone: "+380666666666",
+      mail: "Work out? Are you serious right now?",
     },
     {
       firstName: "Лілія",
       lastName: "Олдровна",
       phone: "+380504691254",
       gender: "female",
+      mail: "My car is very mindboggingly stupid !",
     },
     {
       firstName: "Маршен",
       lastName: "Еріксонян",
       phone: "+380739432123",
       gender: "male",
+      mail: "Good question - I am still trying to figure that out!",
     },
     {
       firstName: "Теодор",
       lastName: "Мотсбес",
       phone: "+380956319521",
       gender: "male",
+      mail: "I tend to be the peacemaker between friends",
     },
   ];
 
@@ -105,7 +118,33 @@ export default function Hw17() {
 
     setSearchTerm(filtered);
   }
-
+  const match = useRouteMatch();
+  function ContactInfo(user) {
+    const params = useParams();
+    const info = (
+      <div
+        className={
+          params.id === `${user.firstName}-${user.lastName}`
+            ? "contact-info"
+            : "none"
+        }
+      >
+        <div className="header-mail">📨 Message</div>
+        <div className="contact-info-main">
+          <div>{user.firstName}</div>
+          <div>{user.lastName}</div>
+          <a className="number phone-info" href="tel:{user.phone}">
+            {user.phone}
+          </a>
+        </div>
+        <div className="mail">{user.mail}</div>
+        <Link to={`${match.url}`} className="back-btn">
+          Back
+        </Link>
+      </div>
+    );
+    return info;
+  }
   return (
     <div className="phone">
       <input
@@ -120,7 +159,7 @@ export default function Hw17() {
             <input
               type="checkbox"
               id={item.id}
-              key = {item.id}
+              key={item.id}
               defaultChecked={true}
               onChange={getGender}
             />
@@ -130,8 +169,20 @@ export default function Hw17() {
       </div>
       <div className="contacts-list">
         {users.map((user) => (
-          <Contact {...user} key={user.id} />
-            
+          <>
+            <Link
+              key={user.firstName}
+              className="contact-link"
+              to={`${match.url}/${user.firstName}-${user.lastName}`}
+            >
+              <Contact {...user} key={user.lastName} />
+            </Link>
+            <Switch>
+              <Route path={`${match.path}/:id`}>
+                <ContactInfo {...user} />
+              </Route>
+            </Switch>
+          </>
         ))}
       </div>
     </div>

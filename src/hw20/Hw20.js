@@ -14,9 +14,13 @@ import Contacts from "../hw17/Hw17";
 
 export default function Hw20() {
   const match = useRouteMatch();
-  console.log(match)
   return (
-    <div id="hw20" className={match.url === "/hw20" && match.isExact=== true ? 'hw20-main':'hw20'}>
+    <div
+      id="hw20"
+      className={
+        match.url === "/hw20" && match.isExact === true ? "hw20-main" : "hw20"
+      }
+    >
       <div className="nav-menu">
         <NavLink to={`${match.url}/home`}>Home</NavLink>
         <NavLink to={`${match.url}/twitter`}> Twitter</NavLink>
@@ -38,5 +42,5 @@ export default function Hw20() {
         </Route>
       </Switch>
     </div>
-  )
+  );
 }

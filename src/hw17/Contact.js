@@ -37,9 +37,7 @@ export default function Contact(user) {
           <p>{user.firstName}</p>
           <p>{user.lastName}</p>
         </div>
-        <a className="number" href="tel:{user.phone}">
-          {user.phone}
-        </a>
+        <p>{user.phone}</p>
       </div>
     </div>
   );

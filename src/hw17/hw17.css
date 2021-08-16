@@ -100,11 +100,78 @@
   color: black;
 }
 
-.contact:hover .number{
-    color:  #4dafb8;
-    font-size: larger;
+.number:hover {
+  color: #000000;
 }
-.contact:hover{
-    
-    cursor: pointer;
+.contact:hover {
+  cursor: pointer;
+}
+
+.contact-link {
+  text-decoration: none;
+  color: rgb(36, 39, 49);
+}
+
+.contact-link:active {
+  color: rgb(36, 39, 49);
+}
+
+.none {
+  display: none;
+}
+
+.contact-info {
+  position: relative;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  background: rgba(255, 255, 255, 0.678);
+  border-radius: 8px;
+  width: 50vw;
+  max-width: 490px;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  padding: 10px 15px;
+}
+
+.contact-info-main {
+  display: flex;
+  flex-wrap: wrap;
+  font-weight: bold;
+  margin-top: 5px;
+}
+.contact-info-main > div {
+  margin-right: 5px;
+}
+
+.phone-info {
+  font-weight: normal;
+  color: rgba(0, 0, 0, 0.589);
+}
+
+.mail {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.header-mail {
+  font-size: x-small;
+}
+
+.back-btn {
+  text-decoration: none;
+  color: black;
+  background: rgba(63, 19, 43, 0.144);
+  padding: 5px;
+  border-radius: 5px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+.back-btn:hover {
+  background: rgba(94, 18, 59, 0.74);
+  color: white;
 }
