@@ -1,5 +1,5 @@
 import "./App.css";
-import React from "react";
+import React, { useState } from "react";
 import { Switch, Route, Link } from "react-router-dom";
 // import { Router, Route, Switch } from "react-router";
 import Hw16 from "./hw16/Hw16";
@@ -7,8 +7,18 @@ import Hw17 from "./hw17/Hw17";
 import Hw20 from "./hw20/Hw20";
 import Hw21 from "./hw21/Hw21";
 
-
 function App() {
+  const usersStorage = [
+    {
+      name: "Admin",
+      email: "admin@admin.com",
+      password: "admin",
+    },
+  ];
+
+  const [users, setUsers] = useState(usersStorage);
+  const [user, setUser] = useState({ name: "", email: "" });
+
   return (
     <>
       <nav>
@@ -22,10 +32,10 @@ function App() {
           React Hooks
         </Link>
         <Link className="mainLink" to="/hw20">
-        React Router
+          React Router
         </Link>
         <Link className="mainLink" to="/hw21">
-        Styled Components
+          Styled Components
         </Link>
       </nav>
       <Switch>
@@ -39,7 +49,12 @@ function App() {
           <Hw20 />
         </Route>
         <Route path="/hw21">
-          <Hw21 />
+          <Hw21
+            users={users}
+            setUsers={setUsers}
+            user={user}
+            setUser={setUser}
+          />
         </Route>
       </Switch>
     </>

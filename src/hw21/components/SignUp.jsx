@@ -12,9 +12,6 @@ export default function SingUp({ Registration, Login, users, match }) {
     e.preventDefault();
     Registration(newDetails);
   };
-  useEffect(() => {
-    Login(newDetails);
-  }, [users]);
   return (
     <form onSubmit={signUpHandler}>
       <div className="signUp">

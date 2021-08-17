@@ -4,44 +4,26 @@ import SignIn from "./components/SingIn";
 import SingUp from "./components/SignUp";
 import "./hw21.css";
 
-export default function Hw21() {
+export default function Hw21({ user, setUser, users, setUsers }) {
   const match = useRouteMatch();
-  const usersStorage = [
-    {
-      name: "Admin",
-      email: "admin@admin.com",
-      password: "admin",
-    },
-    {
-      name: "",
-      email: "",
-      password: "",
-    },
-  ];
-
-  const [users, setUsers] = useState(usersStorage);
-  let newUser = [];
-
-  const [user, setUser] = useState({ name: "", email: "" });
   const [error, setError] = useState("");
 
   const Registration = (newDetails) => {
-    newUser = {
+    setUsers([...new Set(users.concat(newDetails))]);
+    setUser({
       name: newDetails.name,
       email: newDetails.email,
-      password: newDetails.password,
-    };
-    setUsers([...new Set(usersStorage.concat(newUser))]);
-    console.log(newUser);
+    });
+    console.log("Logged in");
   };
   const Login = (details) => {
     users.map((el) => {
       if (details.email === el.email && details.password === el.password) {
-        console.log("Logged in");
         setUser({
           name: el.name,
           email: details.email,
         });
+        console.log("Logged in");
         return;
       } else setError("Details do not match!");
     });
@@ -84,7 +66,12 @@ export default function Hw21() {
               <SignIn Login={Login} error={error} match={match} />
             </Route>
             <Route path={`${match.path}/sign-up`}>
-              <SingUp Registration={Registration} Login={Login} users={users} match={match} />
+              <SingUp
+                Registration={Registration}
+                Login={Login}
+                users={users}
+                match={match}
+              />
             </Route>
           </Switch>
         </div>
