@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 export default function SignIn({ Login, error, match }) {
   const [details, setDetails] = useState({ email: "", password: "" });
 
-  const submitHandler = (e) => {
+  const signInHandler = (e) => {
     e.preventDefault();
 
     Login(details);
   };
   return (
-    <form onSubmit={submitHandler}>
+    <form onSubmit={signInHandler}>
       <div className="signIn">
         <div>Sign in</div>
         {error != "" ? <div className="error">{error}</div> : ""}

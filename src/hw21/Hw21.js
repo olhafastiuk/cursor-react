@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Switch, Route, Link, useRouteMatch } from "react-router-dom";
 import SignIn from "./components/SingIn";
 import SingUp from "./components/SignUp";
@@ -20,12 +20,22 @@ export default function Hw21() {
   ];
 
   const [users, setUsers] = useState(usersStorage);
+  let newUser = [];
 
   const [user, setUser] = useState({ name: "", email: "" });
   const [error, setError] = useState("");
 
+  const Registration = (newDetails) => {
+    newUser = {
+      name: newDetails.name,
+      email: newDetails.email,
+      password: newDetails.password,
+    };
+    setUsers([...new Set(usersStorage.concat(newUser))]);
+    console.log(newUser);
+  };
   const Login = (details) => {
-    usersStorage.map((el) => {
+    users.map((el) => {
       if (details.email === el.email && details.password === el.password) {
         console.log("Logged in");
         setUser({
@@ -74,7 +84,7 @@ export default function Hw21() {
               <SignIn Login={Login} error={error} match={match} />
             </Route>
             <Route path={`${match.path}/sign-up`}>
-              <SingUp match={match} />
+              <SingUp Registration={Registration} Login={Login} users={users} match={match} />
             </Route>
           </Switch>
         </div>
