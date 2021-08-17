@@ -1,7 +1,7 @@
 import React  from "react";
 import { Link } from "react-router-dom";
 
-export default function SingUp() {
+export default function SingUp({match}) {
     return (
       <div>
         <div>Sign up</div>
