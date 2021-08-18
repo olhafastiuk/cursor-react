@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { FormWrapper, Flex, Button } from "./MyBlocks";
+import { Text, Input, Submit, TitleSignForm } from "./SignFormStyled";
 
 export default function SignIn({ Login, error, match }) {
   const [details, setDetails] = useState({ email: "", password: "" });
@@ -10,31 +12,50 @@ export default function SignIn({ Login, error, match }) {
     Login(details);
   };
   return (
-    <form onSubmit={signInHandler}>
-      <div className="signIn">
-        <div>Sign in</div>
-        {error != "" ? <div className="error">{error}</div> : ""}
-        <input
+    <FormWrapper width="50%" margin="-150px 10%" onSubmit={signInHandler}>
+      <TitleSignForm>Welcome Back</TitleSignForm>
+      {error !== "" ? (
+        <Text fontSize="20px" color="rgb(173, 75, 50)">
+          {error}
+        </Text>
+      ) : (
+        ""
+      )}
+      <Flex justify="center" align="start" direction="column">
+        <Input
           type="email"
           name="email"
           placeholder="Email Address"
           onChange={(e) => setDetails({ ...details, email: e.target.value })}
           value={details.email}
         />
-        <input
+        <Input
           type="password"
           name="password"
           placeholder="Password"
           onChange={(e) => setDetails({ ...details, password: e.target.value })}
           value={details.password}
         />
-        <input type="checkbox" />
-        <p>Remember me</p>
-        <input type="submit" value="Sing in" />
-        <Link to={`${match.url}/sign-up`}>
-          <button>Don't have an account? Sign Up</button>
-        </Link>
-      </div>
-    </form>
+        <Submit color="gray" width="60%" type="submit" value="Sing in" />
+        <Flex height="auto" align="center" justify="start" margin="0 20px">
+          <Flex
+            width="50%"
+            height="auto"
+            align="center"
+            justify="start"
+            margin="0"
+          >
+            <Submit width="auto" type="checkbox" />
+            <Text color="rgb(76, 114, 218)">Remember me</Text>
+          </Flex>
+          <Link to={`${match.url}/sign-up`}>
+            <Button padding="5px 12px" fontSize="11px" bg="transparent">
+              <p>Don't have an account?</p>
+              <p> Sign Up</p>
+            </Button>
+          </Link>
+        </Flex>
+      </Flex>
+    </FormWrapper>
   );
 }
