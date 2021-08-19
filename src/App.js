@@ -12,7 +12,7 @@ function App() {
     {
       name: "Admin",
       email: "admin@admin.com",
-      password: "admin",
+      password: "Admin1234",
     },
   ];
 

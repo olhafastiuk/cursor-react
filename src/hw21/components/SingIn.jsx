@@ -11,6 +11,13 @@ export default function SignIn({ Login, error, match }) {
 
     Login(details);
   };
+  const [border, setBorder] = useState("red");
+  function getValidInput(e) {
+    setDetails({ ...details, email: e.target.value });
+    if (details.email.match("@") !== null) {
+      return setBorder("blue");
+    }
+  }
   return (
     <FormWrapper width="50%" margin="-150px 10%" onSubmit={signInHandler}>
       <TitleSignForm>Welcome Back</TitleSignForm>
@@ -26,6 +33,15 @@ export default function SignIn({ Login, error, match }) {
           type="email"
           name="email"
           placeholder="Email Address"
+          borderColor={`${
+            details.email == ""
+              ? "transparent"
+              : `${
+                  details.email.match(/....*@...*\....*/g) !== null
+                    ? "green"
+                    : "red"
+                }`
+          }`}
           onChange={(e) => setDetails({ ...details, email: e.target.value })}
           value={details.email}
         />
@@ -33,6 +49,16 @@ export default function SignIn({ Login, error, match }) {
           type="password"
           name="password"
           placeholder="Password"
+          borderColor={`${
+            details.password == ""
+              ? "transparent"
+              : `${
+                  details.password.match(/([A-Z][a-z]|[a-z][A-Z])/g) !== null &&
+                  details.password.match(/.........*/g) !== null
+                    ? "green"
+                    : "red"
+                }`
+          }`}
           onChange={(e) => setDetails({ ...details, password: e.target.value })}
           value={details.password}
         />

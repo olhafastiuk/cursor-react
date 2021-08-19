@@ -17,7 +17,8 @@ const InputStyled = styled.input`
   padding: ${(props) => props.padding || "10px 15px"};
   margin: ${(props) => props.margin || "10px"};
   background: rgba(255, 255, 255, 0.466);
-  border: ${(props) => props.bprder || "1px solid transparent"};
+  border: ${(props) => props.border || "1px solid"};
+  border-color: ${(props) => props.borderColor || "transparent"};
   border-radius: 6px;
   outline: none;
   color: ${(props) => props.color || "rgb(76, 114, 218)"};
