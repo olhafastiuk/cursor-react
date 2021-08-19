@@ -91,7 +91,7 @@ export default function SingUp({ Registration, Login, users, match }) {
             justify="start"
             margin="0 20px 0 0"
           >
-            <Submit width="auto" type="checkbox" />
+            <Submit disabled width="auto" type="checkbox" />
             <Text color="rgb(76, 114, 218)">
               I want to receive inspiration, marketing, promotions and updates
               via email
