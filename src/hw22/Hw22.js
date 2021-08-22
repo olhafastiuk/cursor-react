@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import posts from "./reducers/posts";
 import Content from "./Content";
 
-const store = createStore(posts);
+const store = createStore(posts, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 export default function Hw22() {
   return (
