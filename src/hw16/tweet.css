@@ -95,27 +95,27 @@
   justify-content: center;
   cursor: pointer;
 }
-.comment:hover .ico {
+.comment:hover .ico, .commented>.ico{
   background: rgba(29, 161, 242, 0.2);
   fill: rgb(29, 161, 242);
 }
-.comment:hover {
+.comment:hover, .commented {
   color: rgb(29, 161, 242);
 }
 
-.repost:hover .ico {
+.repost:hover .ico, .reposted>.ico{
   background: rgba(23, 191, 99, 0.2);
   fill: rgb(23, 191, 99);
 }
-.repost:hover {
+.repost:hover, .reposted {
   color: rgb(23, 191, 99);
 }
 
-.like:hover .ico {
+.like:hover .ico, .liked>.ico {
   background: rgba(224, 36, 94, 0.2);
   fill: rgb(224, 36, 94);
 }
-.like:hover {
+.like:hover, .liked {
   color: rgb(224, 36, 94);
 }
 
