@@ -5,6 +5,7 @@ import "../hw16/hw16.css";
 import { addPost } from "./actions/addPost";
 import { useState } from "react";
 import users from "../hw16/users";
+import { Flex, H1, Input, Select, StyledForm, Submit } from "./Style";
 
 export default function Content() {
   const publication = useSelector((state) => state);
@@ -28,7 +29,7 @@ export default function Content() {
   const day = n.getDate();
   const [newDetails, setNewDetails] = useState({
     img: "https://pbs.twimg.com/profile_images/1321163587679784960/0ZxKlEKB_400x400.jpg",
-    name: "",
+    name: "NASA",
     nickname: "@NASA",
     date: monthArr[month] + " " + day,
     post: "",
@@ -38,7 +39,7 @@ export default function Content() {
     like: 0,
   });
   return (
-    <div>
+    <Flex direction="column-reverse">
       <div className="tweets">
         {publication.map((post) => (
           <Tweet
@@ -56,10 +57,13 @@ export default function Content() {
         ))}
       </div>
       <div className="tweets">
-        <form onSubmit={() => dispatch(addPost(newDetails))}>
-          <input
+        <StyledForm onSubmit={() => dispatch(addPost(newDetails))}>
+          <H1>Create new post</H1>
+          <Input
+            padding="20px 0"
+            margin="10px"
             type="text"
-            placeholder="Create new post"
+            placeholder="What's happening?"
             onChange={(e) =>
               setNewDetails({
                 ...newDetails,
@@ -71,32 +75,41 @@ export default function Content() {
             }
             value={newDetails.post}
           />
-          <input
-            type="url"
-            placeholder="Add image(paste url-link)"
-            onChange={(e) =>
-              setNewDetails({ ...newDetails, img_post: e.target.value })
-            }
-            value={newDetails.img_post}
-          />
-          <select
-            value={newDetails.nickname}
-            onChange={(e) => {
-              setNewDetails({
-                ...newDetails,
-                nickname: e.target.value,
-                img: users.filter((el) => e.target.value === el.nickname)[0]
-                  .img,
-              });
-            }}
-          >
-            <option>@NASA</option>
-            <option>@konstructivizm</option>
-            <option>@universal_sci</option>
-          </select>
-          <input type="submit" value="Add" />
-        </form>
+          <Flex justify="space-between">
+            <Input
+              padding="0"
+              border="none"
+              width="80%"
+              type="url"
+              placeholder="Add image(paste url-link)"
+              onChange={(e) =>
+                setNewDetails({ ...newDetails, img_post: e.target.value })
+              }
+              value={newDetails.img_post}
+            />
+            <Select
+              value={newDetails.nickname}
+              onChange={(e) => {
+                setNewDetails({
+                  ...newDetails,
+                  nickname: e.target.value,
+                  img: users.filter((el) => e.target.value === el.nickname)[0]
+                    .img,
+                  name: users.filter((el) => e.target.value === el.nickname)[0]
+                    .name,
+                });
+              }}
+            >
+              <option>@NASA</option>
+              <option>@konstructivizm</option>
+              <option>@universal_sci</option>
+            </Select>
+          </Flex>
+          <Flex justify="flex-end" align="center">
+            <Submit type="submit" value="Post" />
+          </Flex>
+        </StyledForm>
       </div>
-    </div>
+    </Flex>
   );
 }

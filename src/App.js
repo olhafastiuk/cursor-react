@@ -62,7 +62,7 @@ function App() {
         </Route>
         <Route path="/hw22">
           <Hw22 />
-          </Route>
+        </Route>
       </Switch>
     </>
   );
